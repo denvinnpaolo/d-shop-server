@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+    console.log(req.params.id)
     User.findById(req.params.id).select('-passwordHash')
         .then(user => {
             res.status(200).json(user)
