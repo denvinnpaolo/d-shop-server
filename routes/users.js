@@ -47,7 +47,7 @@ router.post('/register', (req, res) => {
     let user = new User({
         name: req.body.name,
         email: req.body.email,
-        passwordHash: bcrypt.hashSync(req.body.passwordHash, 10),
+        passwordHash: bcrypt.hashSync(req.body.password, 10),
         phone: req.body.phone,
         isAdmin: req.body.isAdmin,
         apartment: req.body.apartment,
@@ -55,6 +55,8 @@ router.post('/register', (req, res) => {
         city: req.body.city,
         country: req.body.country
     });
+
+    console.log(user)
 
     user.save()
         .then(user => {
