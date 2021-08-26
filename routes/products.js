@@ -70,6 +70,8 @@ router.get('/:id', async (req, res) => {
 
 
 router.post('/', uploadOptions.single('image'), async (req, res) => {
+
+    console.log(res)
     let category = ''
     await Category.findById(req.body.category)
         .then((c) => {
@@ -94,16 +96,18 @@ router.post('/', uploadOptions.single('image'), async (req, res) => {
         price: req.body.price,
         category: category,
         countInStock: req.body.countInStock,
-        rating: req.body.rating,
         numReviews: req.body. numReviews,
+        rating: req.body.rating,
         isFeatured: req.body.isFeatured
     });
+
+    console.log(product)
 
     await product.save()
         .then((product) => {
             res.status(201).json(product)
         })
-        .catch(err => res.status(500).json({message: "The product cannot be created", err}))
+        .catch(err => res.status(504).json({message: "The product cannot be created", err}))
 });
 
 router.put('/:id', uploadOptions.single('image'), async (req, res) => {
