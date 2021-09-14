@@ -8,7 +8,7 @@ To get the server running locally:
 
 - Clone this repo
 - **npm install** to install all required dependencies
-- **npm run start** to start the local server
+- **npm start** to start the local server
 
 ### Tech Stack
 - MongoDB
