@@ -39,21 +39,14 @@ To get the server running locally:
 | GET    | `/api/v1/get/featured/:count`                | Get a featured product's count           |
 | GET    | `/api/v1/:id`                                | Get all product's information            |
 | POST   | `/api/v1/`                                   | Post a new product                       |
-| PUT    | `/api/v1/gallery-images/:id`                 | Edit an existing product                 |
+| PUT    | `/api/v1`                                    | Edit an existing product                 |
+| PUT    | `/api/v1/gallery-images/:id`                 | Upload an image                          |
 | DELETE | `/api/v1/:id`                                | Delete an existing prodcut               |
 
 All GET routes does NOT require an `authorization ` header:
 
 ALL POST, PUT, & DELETE routes REQUIRE a `JSONWebToken`:
 
-```
-{
-  token: {
-      secret, 
-  }
-}
-
-```
 
 ## Environment Variables
 
